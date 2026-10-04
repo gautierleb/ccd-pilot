@@ -19,3 +19,5 @@ python -m pip install pytest ruff
 ruff check .
 python -m pytest -q
 ```
+
+A spike line, never merged.
