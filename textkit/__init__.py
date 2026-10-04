@@ -2,5 +2,6 @@
 
 from textkit.slugify import slugify
 from textkit.truncate import truncate
+from textkit.whitespace import collapse_whitespace
 
-__all__ = ["slugify", "truncate"]
+__all__ = ["collapse_whitespace", "slugify", "truncate"]
