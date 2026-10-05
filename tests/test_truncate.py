@@ -7,9 +7,11 @@ from textkit import truncate
     ("text", "width", "expected"),
     [
         ("", 5, ""),
+        ("heron", 10, "heron"),
         ("short", 5, "short"),
-        ("a longer sentence", 9, "a longer…"),
-        ("a longer sentence", 10, "a longer…"),  # no space before the ellipsis
+        ("kingfisher", 5, "king…"),
+        ("a longer sentence", 10, "a longer …"),  # spaces before the ellipsis stay
+        ("abc", 1, "…"),
     ],
 )
 def test_truncate(text: str, width: int, expected: str) -> None:
@@ -18,6 +20,12 @@ def test_truncate(text: str, width: int, expected: str) -> None:
 
 def test_truncate_with_another_ellipsis() -> None:
     assert truncate("abcdefgh", 6, ellipsis="...") == "abc..."
+
+
+@pytest.mark.parametrize("width", [0, -1])
+def test_a_width_below_one_is_refused(width: int) -> None:
+    with pytest.raises(ValueError, match="at least 1"):
+        truncate("a", width)
 
 
 def test_a_width_smaller_than_the_ellipsis_is_refused() -> None:
