@@ -10,6 +10,7 @@ It is a test bed. Do not depend on it.
 
 - `textkit/`: the library, standard library only
 - `tests/`: pytest tests, one file per module
+- `docs/index.html`: a static page listing the public functions, one example each
 - `.github/workflows/ci.yml`: lint and tests on every pull request
 
 ## Checks

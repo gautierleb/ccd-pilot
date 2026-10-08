@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>textkit functions</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.5; max-width: 40rem; margin: 0 auto; padding: 1rem; color: #1a1a1a; background: #fff; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; margin-top: 2rem; }
+  section { border-top: 1px solid #ccc; }
+  pre { background: #f2f2f2; padding: 0.75rem; border-radius: 4px; white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: auto; }
+  code { font-family: ui-monospace, monospace; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #eee; background: #181818; }
+    section { border-color: #444; }
+    pre { background: #2a2a2a; }
+  }
+</style>
+</head>
+<body>
+<h1>textkit</h1>
+<p>Small text helpers, standard library only. Every public function is listed below with one example.</p>
+
+<section id="collapse_whitespace">
+<h2>collapse_whitespace</h2>
+<pre><code>collapse_whitespace(text: str) -&gt; str</code></pre>
+<p>Returns the text with every run of whitespace as one space and none at either end; an empty text gives an empty string.</p>
+<pre><code>&gt;&gt;&gt; collapse_whitespace("  hello   \n world  ")
+'hello world'</code></pre>
+</section>
+
+<section id="initials">
+<h2>initials</h2>
+<pre><code>initials(name: str) -&gt; str</code></pre>
+<p>Returns the upper-cased first character of each whitespace-separated word in the name; an empty or whitespace-only name gives an empty string.</p>
+<pre><code>&gt;&gt;&gt; initials("ada king lovelace")
+'AKL'</code></pre>
+</section>
+
+<section id="slugify">
+<h2>slugify</h2>
+<pre><code>slugify(text: str) -&gt; str</code></pre>
+<p>Returns the text lower-cased with every run of characters other than a-z and 0-9 as one "-", without leading or trailing "-"; an empty text gives an empty slug.</p>
+<pre><code>&gt;&gt;&gt; slugify("Hello, World! 2024")
+'hello-world-2024'</code></pre>
+</section>
+
+<section id="truncate">
+<h2>truncate</h2>
+<pre><code>truncate(text: str, width: int, *, ellipsis: str = "…") -&gt; str</code></pre>
+<p>Returns the text cut to at most <code>width</code> characters, ending in the ellipsis when it was cut; an empty text stays empty.</p>
+<pre><code>&gt;&gt;&gt; truncate("The quick brown fox", 10)
+'The quick…'</code></pre>
+</section>
+</body>
+</html>
