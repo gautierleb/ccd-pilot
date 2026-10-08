@@ -10,3 +10,4 @@ A small library of text helpers. Standard library only: no runtime dependencies.
 - Before you commit: `ruff check .` and `python -m pytest -q` both pass.
 - Do not add dependencies, change the CI workflow or edit this file. If the task needs one of
   these, say so in your result and stop.
+- Name every test after the behaviour it checks, as test_<what>_<when>.
